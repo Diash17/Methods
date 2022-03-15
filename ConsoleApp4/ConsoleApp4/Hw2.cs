@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp4
+namespace Hw2
 {
-    static class Homework2
+    public static class Homework2
     {
         public static int DoMathOperations(int A, int B)
         {
