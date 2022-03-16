@@ -167,32 +167,34 @@ namespace Hw3
             return result;
         }
 
-        public static bool CheckIfNumbersAreSimilar(int input1, int input2)
+            public static bool CheckIfNumbersAreSimilar(int input1, int input2)
         {
             bool result = false;
-            int copy2 = input2;
-
+           
             while (input1 > 0)
             {
-                int demaind1 = input1 % 10;
+            int copy2 = input2;
+                int demaind1= input1 % 10;
+                input1 /= 10;
 
                 while (copy2 != 0)
                 {
                     int demaind2 = copy2 % 10;
-
+                   
                     if (demaind1 == demaind2)
                     {
                         result = true;
                         break;
                     }
                     copy2 /= 10;
-                    input1 /= 10;
+
+
                 }
             }
             return result;
         }
 
-
+        
 
     }
 }
