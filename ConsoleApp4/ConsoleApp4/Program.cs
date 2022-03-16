@@ -1,10 +1,9 @@
-﻿using Hw2;
+﻿using Hw3;
 
 class MainClass
 {
     static void Main(string[] args)
     {
-        // Display the number of command line arguments.
-        Console.WriteLine(args.Length);
+        Homework3.Exponentiate(1, 1);
     }
 }

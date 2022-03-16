@@ -27,7 +27,7 @@ namespace Hw5.Tests
         //Second
         [TestCase(1, 3, 2, 4, "y = 1x+(-2)")]
         [TestCase(2, 3, 3, 2, "y = -1x+(-5)")]
-        public void GetEquationOfTheLineIn4Points(double x1, double y1, double x2, double y2, string expected)
+        public void GetEquationOfTheLineIn4PointsTest(double x1, double y1, double x2, double y2, string expected)
         {
             string actual = Homework1.GetEquationOfTheLineIn4Points(x1, y1, x2, y2);
 
@@ -37,13 +37,13 @@ namespace Hw5.Tests
         [TestCase(0, 4, 0, 5)]
         [TestCase(-10, 3, -10, 3)]
         [TestCase(5, 5, 5, 3)]
-        public void GetEquationOfTheLineIn4Points_WhenX1IsEqualX2_ShouldThrowExeption(double x1, double y1, double x2, double y2)
+        public void GetEquationOfTheLineIn4PointsTest_WhenX1IsEqualX2_ShouldThrowExeption(double x1, double y1, double x2, double y2)
         {
             Assert.Throws<Exception>(() => Homework1.GetEquationOfTheLineIn4Points(x1, y1, x2, y2));
         }
 
         //Third
-        public void GetTheResultOfLinearEquation(int a, int b, int c, double expected)
+        public void GetTheResultOfLinearEquationTest(int a, int b, int c, double expected)
         {
             double actual = Homework1.GetTheResultOfLinearEquation(a, b, c);
 
@@ -51,19 +51,19 @@ namespace Hw5.Tests
         }
 
         [TestCase(0, 4, 3)]
-        public void GetTheResultOfLinearEquation_WhenAIsZero_ShouldThrowExeption(int a, int b, int c)
+        public void GetTheResultOfLinearEquationTest_WhenAIsZero_ShouldThrowExeption(int a, int b, int c)
         {
             Assert.Throws<Exception>(() => Homework1.GetTheResultOfLinearEquation(a, b, c));
         }
 
         [TestCase(2, 0, 5)]
-        public void GetTheResultOfLinearEquation_WhenBIsZero_ShouldThrowExeption(int a, int b, int c)
+        public void GetTheResultOfLinearEquationTest_WhenBIsZero_ShouldThrowExeption(int a, int b, int c)
         {
             Assert.Throws<Exception>(() => Homework1.GetTheResultOfLinearEquation(a, b, c));
         }
 
         [TestCase(2, 4, 0)]
-        public void GetTheResultOfLinearEquation_WhenCIsZero_ShouldThrowExeption(int a, int b, int c)
+        public void GetTheResultOfLinearEquationTest_WhenCIsZero_ShouldThrowExeption(int a, int b, int c)
         {
             Assert.Throws<Exception>(() => Homework1.GetTheResultOfLinearEquation(a, b, c));
         }

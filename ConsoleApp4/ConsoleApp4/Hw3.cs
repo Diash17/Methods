@@ -8,70 +8,92 @@ namespace Hw3
 {
     public static class Homework3
     {
-        public static double Exponentiate(double a, double b)
+        public static int Exponentiate(int a, int b)
         {
-            double result = Math.Pow(a, b);
+            if (b < 0)
+            {
+                throw new Exception("b can't be zero");
+            }
+
+            int tmp = 1;
+            int result = 1;
+
+            while (tmp <= b)
+            {
+                result *= a;
+                tmp++;
+            }
             return result;
         }
 
         public static int FindNumberOfPositiveIntegers(int inputA)
         {
-
             int result = 0;
-            for (int x = 1; (x * x) < inputA; ++x)
+            if (inputA > 0)
             {
-                result += 1;
-            }
-
-            return result;
-
-        }
-
-        public static int FindLargerDivision(int inputA)
-        {
-            int a = 0;
-            int result = a;
-            for (a = (inputA - 1); a > 0; a--)
-            {
-                int reminder = (inputA % a);
-                if (reminder == 0)
+                for (int x = 1; (x * x) < (inputA); x++)
                 {
-                    result = a;
-                    break;
-
+                    result++;
                 }
             }
+
             return result;
+        }
+
+        public static int GreatestDivisor(int inputA)
+        {
+            int divisor = Math.Abs(inputA) - 1;
+            if (divisor == 0 || inputA == 0)
+            {
+                throw new Exception("can't be zero");
+            }
+
+            while (Math.Abs(inputA) % divisor != 0)
+            {
+                divisor--;
+            }
+
+            return divisor;
         }
 
         public static int FindSumOfNumbersDivisionOnSeven(int a, int b)
         {
             int sum = 0;
-            while (a != b)
+            if (b < a)
             {
-                a++;
+                int tmp = b;
+                b = a;
+                a = tmp;
+            }
+            while (a <= b)
+            {
                 if (a % 7 == 0)
                 {
                     sum += a;
                 }
+                a++;
             }
             return sum;
         }
 
         public static int FindNNubberOfFibonacci(int N)
         {
+            int tmp0 = 0;
             int tmp1 = 1;
-            int tmp2 = 1;
             int result = 0;
             if (N <= 0)
             {
-                throw new Exception("Can not be less that zero ");
+                throw new Exception("Can not be less than zero or be equal zero ");
             }
-            for (int i = 3; i <= 0; i++)
+            if (N <= 2)
             {
-                result = tmp1 + tmp2;
-                tmp1 = tmp2;
-                tmp2 = result;
+                return 1;
+            }
+            for (int i = 2; i <= N; i++)
+            {
+                result = tmp0 + tmp1;
+                tmp0 = tmp1;
+                tmp1 = result;
             }
             return result;
         }
@@ -92,7 +114,7 @@ namespace Hw3
             return a + b;
         }
 
-        public static int FindTheLargeDivisionWithEfklidMethod(int input)
+        public static int GetNumByHalfDevisionMethod(int input)
         {
             int N = 0;
             int a = 0;
@@ -131,51 +153,46 @@ namespace Hw3
             return sum;
         }
 
-        public static string CheckIfNubmersAreSimilar(int input1, int input2)
+        public static int GetReverseOfNumber(int input)
         {
+            int result = 0;
+
+            while (input != 0)
+            {
+                result *= 10;
+                result += input % 10;
+                input /= 10;
+            }
+
+            return result;
+        }
+
+        public static bool CheckIfNumbersAreSimilar(int input1, int input2)
+        {
+            bool result = false;
             int copy2 = input2;
-            string result = "";
+
             while (input1 > 0)
             {
-                int digit1 = input1 % 10;
-                input1 /= 10;
+                int demaind1 = input1 % 10;
 
-                while (copy2 > 0)
+                while (copy2 != 0)
                 {
                     int demaind2 = copy2 % 10;
+
+                    if (demaind1 == demaind2)
+                    {
+                        result = true;
+                        break;
+                    }
                     copy2 /= 10;
-                    if (digit1 == demaind2)
-                    {
-                        result = "Yes";
-                    }
-                    else
-                    {
-                        result = "No";
-                    }
+                    input1 /= 10;
                 }
             }
             return result;
         }
 
-        public static string CheckIfSimilarDigits(int input1, int input2)
-        {
-            int copy2 = input2;
-           
-            while (input1 > 0)
-            {
-                int digit1 = input1 % 10;
-                input1 /= 10;
-                while (copy2 > 0)
-                {
-                    int demaind2 = copy2 % 10;
-                    copy2 /= 10;
-                    if (digit1 == demaind2)
-                    {
-                        return "Yes";
-                    }
-                }
-            }
-            return "No";
-        }
+
+
     }
 }

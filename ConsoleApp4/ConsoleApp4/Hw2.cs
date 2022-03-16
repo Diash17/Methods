@@ -27,28 +27,28 @@ namespace Hw2
             return result;
         }
 
-        public static string DefineQuarterOfCircle(double x, double y)
+        public static int DefineQuarterOfCircle(double x, double y)
         {
-            string result = "";
+            int result;
             if ((x > 0) && (y > 0))
             {
-                result = ("1 четверть");
-            }
-            else if ((x > 0) && (y > 0))
-            {
-                result = ("2 четверть");
+                result = 1;
             }
             else if ((x < 0) && (y > 0))
             {
-                result = ("3 четверть");
+                result = 2;
             }
             else if ((x < 0) && (y < 0))
             {
-                result = ("4 четверть");
+                result = 3;
+            }
+            else if ((x > 0) && (y < 0))
+            {
+                result = 4;
             }
             else
             {
-                result = ("Точка лежит на оси");
+                result = 0;
             }
             return result;
         }
@@ -61,6 +61,10 @@ namespace Hw2
             string unit = "";
             string result = "";
 
+            if (userNumber < 10 || userNumber > 99)
+            {
+                throw new Exception("Write two-digit number");
+            }
 
             if (userNumber > 19)
             {
@@ -103,7 +107,11 @@ namespace Hw2
                 }
 
 
-                if (second == 1)
+                 if (second == 0)
+                {
+                    unit =null;
+                }
+                else if (second == 1)
                 {
                     unit = "one";
                 }

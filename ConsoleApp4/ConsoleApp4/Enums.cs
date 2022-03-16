@@ -8,10 +8,10 @@ namespace ConsoleApp4
 {
     public enum Quarters
     {
-        I,
-        II,
-        III,
-        IV,
-        OneTheAxis
+       OnTheAxis,
+       I,
+       II,
+       III,
+       IV,
     }
 }
